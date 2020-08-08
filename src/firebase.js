@@ -2,6 +2,7 @@ import firebase from 'firebase';
 import 'firebase/firebase-auth'
 import 'firebase/firestore'
 
+
 const config = {
   apiKey: "AIzaSyD0ZIBwsThSkR6dhgoQY1FWmoHzf3ENUMw",
   authDomain: "vue-shop-c4d3d.firebaseapp.com",

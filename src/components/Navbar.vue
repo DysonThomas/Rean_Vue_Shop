@@ -1,5 +1,6 @@
 <template>
   <div class="hello">
+  
     <nav class="navbar custom-nav fixed-top navbar-expand-lg navbar-light ">
       <div class="container">
         <router-link class="navbar-brand" to="/">Vue Shop</router-link>
@@ -18,7 +19,7 @@
             <router-link to="/" v-if="status==1" class="btn btn-outline-success border-0 mx-2 my-2 my-sm-0" data-toggle="modal" data-target="#miniCart">
               <i class="fas fa-cart-plus"></i>
             </router-link>
-           <router-link to="/" v-if="status==1" class="btn btn-outline-success border-0  my-2 my-sm-0" data-toggle="modal" data-target="#miniCart">
+           <router-link to="/profile" v-if="status==1" class="btn btn-outline-success border-0  my-2 my-sm-0" data-toggle="modal" data-target="#miniCart">
               <i class="fa fa-users" aria-hidden="true"></i>
             </router-link>
           </form>
@@ -99,7 +100,7 @@ import firebase from '../firebase'
    created(){
      fb.auth().onAuthStateChanged((user)=>{
      if (user) {
-       console.log(user)
+      //  console.log(user)
       this.status=1
      } else {
     
@@ -115,7 +116,7 @@ import firebase from '../firebase'
       
       forgotpassword(){
         var auth = fb.auth();
-        console.log(auth)
+        // console.log(auth)
         // var emailAddress = this.email;
         auth.sendPasswordResetEmail(this.email).then(function() {
         alert("There is a reset link in your email address");
@@ -124,11 +125,9 @@ import firebase from '../firebase'
         })
       },
         login(){
-
-          fb.auth().signInWithEmailAndPassword(this.email, this.password)
+       fb.auth().signInWithEmailAndPassword(this.email, this.password)
                         .then(() => {
-                           this.$bvModal.hide('modal-1')
-                          alert("sucess")
+                        
                         })
                         .catch(function(error) {
                             // Handle Errors here.
@@ -147,7 +146,7 @@ import firebase from '../firebase'
             fb.auth().createUserWithEmailAndPassword(this.email1, this.password1)
                 .then((user) => {
                   alert("Sucess")
-                      this.$bvModal.hide('modal-1')
+                      this.close();
                     db.collection("profiles").doc(user.user.uid).set({
                         name: this.name
                     })
