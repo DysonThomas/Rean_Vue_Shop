@@ -7,6 +7,7 @@ import './assets/app.scss';
 import VueFirestore from 'vue-firestore' 
 require('firebase/firestore')
 Vue.use(VueFirestore)
+import {fb} from './firebase'
 
 // Vue.use(VueFirestore, {
 //   key: 'id',         // the name of the property. Default is '.key'.
@@ -23,8 +24,15 @@ Vue.component('Profile', require('./views/Profile.vue').default);
 
 Vue.config.productionTip = false
 
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+let app='';
+fb.auth().onAuthStateChanged((user)=>{
+  if(!app){
+  new Vue({
+    router,
+    store,
+    render: h => h(App)
+  }).$mount('#app')
+}
+});
+
+

@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Profile from "../views/Profile.vue"
+// import { metadata } from 'core-js/fn/reflect'
+import {fb} from '../firebase'
 
 Vue.use(VueRouter)
 
@@ -14,7 +16,8 @@ Vue.use(VueRouter)
   {
     path: "/profile",
     name: "Profile",
-    component: Profile
+    component: Profile,
+    meta: { requiresAuth: true }
   },
   {
     path: '/about',
@@ -29,6 +32,19 @@ Vue.use(VueRouter)
 const router = new VueRouter({
  
   routes
+})
+router.beforeEach((to, from, next) => {
+
+  const requiresAuth = to.matched.some(x => x.meta.requiresAuth)
+  const currentUser = fb.auth().currentUser
+
+  if (requiresAuth && !currentUser) {
+      next('/')
+  } else if (requiresAuth && currentUser) {
+      next()
+  } else {
+      next()
+  }
 })
 
 export default router
