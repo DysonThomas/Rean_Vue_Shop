@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Profile from "../views/Profile.vue"
+
 // import { metadata } from 'core-js/fn/reflect'
 import {fb} from '../firebase'
 
@@ -30,7 +31,6 @@ Vue.use(VueRouter)
 ]
 
 const router = new VueRouter({
- 
   routes
 })
 router.beforeEach((to, from, next) => {

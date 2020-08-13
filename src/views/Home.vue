@@ -2,6 +2,9 @@
   <div class="home">
      <Navbar></Navbar>
       <Hero/>
+      <categories/>
+      
+      
   </div>
 </template>
 

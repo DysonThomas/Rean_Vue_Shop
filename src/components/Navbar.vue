@@ -127,7 +127,8 @@ import firebase from '../firebase'
         login(){
        fb.auth().signInWithEmailAndPassword(this.email, this.password)
                         .then(() => {
-                        
+                          alert("Sucess")   
+                               this.close();                  
                         })
                         .catch(function(error) {
                             // Handle Errors here.
@@ -148,7 +149,8 @@ import firebase from '../firebase'
                   alert("Sucess")
                       this.close();
                     db.collection("profiles").doc(user.user.uid).set({
-                        name: this.name
+                        name: this.name,
+                        type:"customer"
                     })
                     .then(function() {
                         console.log("Document successfully written!");
