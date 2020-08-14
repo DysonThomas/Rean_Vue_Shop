@@ -1,8 +1,9 @@
 <template>
   <div class="home">
      <Navbar></Navbar>
-      <Hero/>
-      <categories/>
+     <categories/>
+    
+      
       
       
   </div>

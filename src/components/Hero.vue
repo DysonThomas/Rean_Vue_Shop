@@ -1,6 +1,7 @@
 <template>
     <div class="hero">
         <div class="container h-100">
+            
           <div class="row h-100 justify-content-center align-items-center">
             <div class="col-md-5">
               <div class="hero-content">
@@ -22,7 +23,7 @@
                 </div>
             </div>
           </div>
-        </div>
+        </div> 
     </div>
 </template>
 

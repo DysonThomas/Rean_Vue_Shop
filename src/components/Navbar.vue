@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
   
-    <nav class="navbar custom-nav fixed-top navbar-expand-lg navbar-light ">
+    <nav class="navbar custom-nav  navbar-expand-lg navbar-light ">
       <div class="container">
         <router-link class="navbar-brand" to="/">Vue Shop</router-link>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
