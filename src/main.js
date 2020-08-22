@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import store from './store'
+// import store from './store'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import './assets/app.scss';
 import VueFirestore from 'vue-firestore' 
@@ -24,11 +24,13 @@ Vue.use(IconsPlugin)
 
 import VueCarousel from 'vue-carousel'; 
 Vue.use(VueCarousel);
-
+Vue.component('add-to-cart', require('./components/AddToCart.vue').default); 
 Vue.component('Navbar', require('./components/Navbar.vue').default);
 Vue.component('Profile', require('./views/Profile.vue').default);
 Vue.component('categories', require('./views/categories.vue').default);
 
+
+import store from './store.js'
 
 
 Vue.config.productionTip = false

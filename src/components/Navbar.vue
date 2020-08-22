@@ -16,7 +16,7 @@
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <b-button variant="success" v-if="status==0" v-b-modal.modal-1>Get Start</b-button>
             
-            <router-link to="/" v-if="status==1" class="btn btn-outline-success border-0 mx-2 my-2 my-sm-0" data-toggle="modal" data-target="#miniCart">
+            <router-link to="/cart"  v-if="status==1" class="btn btn-outline-success border-0 mx-2 my-2 my-sm-0" data-toggle="modal" data-target="#miniCart">
               <i class="fas fa-cart-plus"></i>
             </router-link>
            <router-link to="/profile" v-if="status==1" class="btn btn-outline-success border-0  my-2 my-sm-0" data-toggle="modal" data-target="#miniCart">
@@ -110,6 +110,9 @@ import firebase from '../firebase'
 
   },
     methods:{
+      cart(){
+              this.$bvModal.hide('Addtocart-1')
+      },
       close(){
         this.$bvModal.hide('modal-1')
       },

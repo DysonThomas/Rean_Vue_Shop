@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Profile from "../views/Profile.vue"
+import cart from "../components/AddToCart.vue"
 
 // import { metadata } from 'core-js/fn/reflect'
 import {fb} from '../firebase'
@@ -14,6 +15,11 @@ Vue.use(VueRouter)
     name: 'Home',
     component: Home
   },
+    {
+      path: '/cart',
+      name: 'cart',
+      component: cart
+    },
   {
     path: "/profile",
     name: "Profile",
